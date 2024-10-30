@@ -1,0 +1,291 @@
+/* Created by Tivotal */
+
+/* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f2f2f2;
+}
+
+.navbar {
+  position: fixed;
+  background: #222;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  z-index: 100;
+}
+
+.logo-menu,
+.menu,
+.nav-btns {
+  display: flex;
+  align-items: center;
+}
+
+.menu-btn {
+  display: block;
+  position: relative;
+  width: 35px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 25px;
+}
+
+.menu-btn .bar {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.5s;
+}
+
+.menu-btn .bar:nth-child(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+.menu-btn .bar:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+}
+
+.menu-btn .bar:nth-child(3) {
+  top: 100%;
+  transform-origin: left center;
+  transform: translateY(-100%);
+}
+
+.navbar.active .menu-btn .bar:nth-child(1) {
+  transform: rotate(45deg);
+  top: 0px;
+  left: 10px;
+}
+
+.navbar.active .menu-btn .bar:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.navbar.active .menu-btn .bar:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 25px;
+  left: 10px;
+}
+
+.menu-btn {
+  display: none;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 600;
+  color: #4070f4;
+}
+
+.menu {
+  padding: 0 0 0 30px;
+}
+
+.menu li {
+  padding: 0 15px;
+}
+
+.menu li a {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.menu li a:hover {
+  color: #4070f4;
+}
+
+.navbar form {
+  display: flex;
+  height: 55px;
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid rgba(155, 155, 155, 0.2);
+  background: #222;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.navbar form input {
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.navbar form button {
+  padding: 0 15px;
+  background: #4070f4;
+  color: #fff;
+  font-size: 17px;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.navbar form button:hover {
+  background: #2c5ce2;
+}
+
+.search-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: 0.5s;
+  display: none;
+}
+
+.search-btn:hover {
+  background: rgba(155, 155, 155, 0.2);
+}
+
+.nav-btn {
+  padding: 10px 25px;
+  background: #fff;
+  color: #4070f4;
+  font-size: 17px;
+  font-weight: 600;
+  outline: none;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.nav-btn:hover {
+  background: none;
+  color: #fff;
+}
+
+@media (max-width: 1450px) {
+  .navbar {
+    padding: 0 4%;
+  }
+
+  .logo {
+    font-size: 25px;
+  }
+
+  .menu {
+    padding: 0 0 0 20px;
+  }
+
+  .menu li {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .menu {
+    position: absolute;
+    top: 100%;
+    left: -100%;
+    background: #222;
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    gap: 20px;
+    transition: 0.5s;
+  }
+
+  .navbar.active .menu {
+    left: 0;
+  }
+
+  .menu li {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    padding: 0;
+    border: 1px solid rgba(155, 155, 155, 0.2);
+    border-radius: 5px;
+  }
+
+  .menu li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar form {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    max-width: 100%;
+    padding: 0;
+    border-radius: 0;
+    height: 0;
+    overflow: hidden;
+    transition: 0.3s;
+  }
+
+  .navbar.search-active form {
+    height: 55px;
+  }
+
+  .search-btn {
+    display: flex;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-btn {
+    display: none;
+  }
+
+  .search-btn {
+    margin-right: 0;
+  }
+}
